@@ -1,7 +1,7 @@
 # Weather App
 
-created by Josiah Eakle
+## Created by Josiah Eakle
 [Portfolio](https://www.josiaheakle.com)
 
-used openweathermap api
+### Used Open Weather Map api for waather data.
 [OpenWeatherMap](https://openweathermap.org/api)
