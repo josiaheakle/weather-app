@@ -20,9 +20,8 @@ const WeatherData = ( props ) => {
     const [weatherIcon, setWeatherIcon ] = useState(null);
 
     const getWeatherIcon = () => {
-        fetch(`http://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`, {mode: 'cors'})
+        fetch(`https://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`, {mode: 'cors'})
         .then(function(response) { 
-            console.log(response)
             setWeatherIcon(response.url)
         })
         // .then(function(response) {
@@ -30,7 +29,6 @@ const WeatherData = ( props ) => {
         //     return response;
         // })
         .catch(function(err) {
-            console.log(`couldnt get data`)
             return false;
         });
     }

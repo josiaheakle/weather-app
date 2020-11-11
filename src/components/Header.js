@@ -27,8 +27,6 @@ const Header = ( props ) => {
         navigator.geolocation.getCurrentPosition((pos)=>{
             props.newUserPos(pos.coords.latitude, pos.coords.longitude)
 
-
-            console.log(pos.coords.longitude)
         });
 
 
@@ -47,9 +45,8 @@ const Header = ( props ) => {
         }
     }
 
-    useEffect(() => {
-        console.log(`tempType changed!`)
-    }, [props.tempType])
+    // useEffect(() => {
+    // }, [props.tempType])
 
     useEffect(() => {
         updateTempType(props.tempType)

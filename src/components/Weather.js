@@ -43,7 +43,6 @@ const Weather = () => {
 
         fetch(url, {mode: 'cors'})
         .then(function(response) { 
-            console.log(response)
             if(response.status == '404') {
                 alertWrongZipcode();
                 // break;
@@ -55,7 +54,6 @@ const Weather = () => {
             return response;
         })
         .catch(function(err) {
-            console.log(`couldnt get data`)
             return false;
         });
 
@@ -144,21 +142,24 @@ const Weather = () => {
                 </div> */}
                 {(data.main)?(
                     <WeatherData zip={zip} data={data} tempType={tempType} />
-                ):null} 
+                ):<div className='no-results-found'>
+                    <span>No data found, try again...</span>
+                
+                  </div>} 
                 {/* <video className='background-video' autoPlay loop muted src={bgVideo} ></video> */}
             <div className='footer'>
                 <span id='contributors'></span>
-                <span id='portfolio-and-gh'> 
+                <div id='portfolio-and-gh'> 
                     {'< '}Created by 
                     <a title='Josiah Eakle' id="portfolio-link" href='https://www.josiaheakle.com' >
                         <span>Josiah Eakle</span> 
                         {/* <img className='footer-icon' id='portfolio-link-img' src={jeIcon}></img>  */}
                     </a> 
-                    <a title='See the code!' id="github-link" href='https://www.github.com' > 
+                    <a title='See the code!' id="github-link" href='https://github.com/josiaheakle/weather-app' > 
                         <img className='footer-icon' id='github-link-img' src={ghIcon}></img> 
                     </a> 
                     {'>'}
-                </span>
+                </div>
             </div>
         </div>
     );
