@@ -1,5 +1,8 @@
 
-import cloudBg from "./../media/cloudy.mp4"
+// import cloudBg from "./../media/cloudy.mp4"
+
+import jeIcon from "./../media/favicon.ico"
+import ghIcon from "./../media/GitHub.png"
 // import rainBg from "./../media/rain.mp4"
 // import snowBg from "./../media/snow.mp4"
 
@@ -32,6 +35,7 @@ const Weather = () => {
     const [ data, setData ] = useState({});
     const [ location, setLocation ] = useState('00000');
     const [ tempType, setTempType ] = useState('f')
+    const [ zip, setZip ] = useState('12345')
 
 
 
@@ -58,41 +62,7 @@ const Weather = () => {
 
     }
 
-    const setBackground = () => {
-        const type = data.weather[0].main;
-        console.log(type)
-        switch(type) {
-            default:
-            case('Clouds'): 
-                import("./../media/cloudy.mp4")
-                .then(videoSrc=> {
-                    console.log(`setting video now`)
-                    setBgVideo(videoSrc.default)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-                break;
-            case('Rain'):
-                import("./../media/rain.mp4")
-                .then(videoSrc=> {
-                    setBgVideo(videoSrc.default)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-                break;
-            case('Snow'):
-                import("./../media/snow.mp4")
-                .then(videoSrc=> {
-                    setBgVideo(videoSrc.default)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-                break;
-        }
-    }
+
 
     const updateLocation = (event) => {
         let val = event.target.value;
@@ -108,11 +78,15 @@ const Weather = () => {
             const url = URLHelper.makeZipUrl(location);
             if(loadData(url) === false) {
                 alertWrongZipcode();
+            } else {
+                setZip(location)
             }
         } else {
             // const url = URLHelper.makeCityUrl(location);
             // if(loadData(url) === false) {
                 alertWrongZipcode();
+                loadData(URLHelper.makeZipUrl('12345'))
+                setZip('12345')
             // }
         }
 
@@ -124,11 +98,14 @@ const Weather = () => {
         const input = document.querySelector('#location-input')
         input.value = '';
         input.placeholder = "try again"
+        setZip('00000')
+
     }
 
 
 
     const updateUserPos = (lat, lon) => {
+        setZip('00000')
         loadData(URLHelper.makePosUrl(lat,lon))
     }
 
@@ -141,8 +118,9 @@ const Weather = () => {
         
 
 
-
-        loadData(URLHelper.makeZipUrl('12345'))
+        setLocation('12345')
+        setZip('12345')
+        loadData(URLHelper.makeZipUrl(zip))
         // loadData(makeZipUrl('37934'));
     },[])
 
@@ -157,7 +135,7 @@ const Weather = () => {
 
     return (
         <div className="Weather">
-            <Header title={`My Weather`} onLocationUpdate={updateLocation} locationSubmit={applyLocation} newUserPos={updateUserPos} updateTempType={updateTempType} tempType={tempType} />
+            <Header title={`My Climate`} onLocationUpdate={updateLocation} locationSubmit={applyLocation} newUserPos={updateUserPos} updateTempType={updateTempType} tempType={tempType} />
                 {/* <div className='zipcode-form'>
                     <form onSubmit={(e)=> e.preventDefault()}>                
                         <input onChange={updateZipcode} id="zip" name="zip" type="text" placeholder='00000' />
@@ -165,10 +143,23 @@ const Weather = () => {
                     </form>
                 </div> */}
                 {(data.main)?(
-                    <WeatherData data={data} tempType={tempType} />
+                    <WeatherData zip={zip} data={data} tempType={tempType} />
                 ):null} 
                 {/* <video className='background-video' autoPlay loop muted src={bgVideo} ></video> */}
-
+            <div className='footer'>
+                <span id='contributors'></span>
+                <span id='portfolio-and-gh'> 
+                    {'< '}Created by 
+                    <a title='Josiah Eakle' id="portfolio-link" href='https://www.josiaheakle.com' >
+                        <span>Josiah Eakle</span> 
+                        {/* <img className='footer-icon' id='portfolio-link-img' src={jeIcon}></img>  */}
+                    </a> 
+                    <a title='See the code!' id="github-link" href='https://www.github.com' > 
+                        <img className='footer-icon' id='github-link-img' src={ghIcon}></img> 
+                    </a> 
+                    {'>'}
+                </span>
+            </div>
         </div>
     );
 

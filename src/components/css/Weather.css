@@ -17,6 +17,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--blue);
+    background-color: var(--grey);
 }
 
+
+
+#portfolio-link {
+    padding-left: 8px;
+    color: var(--dark-grey);
+    text-decoration: none;
+}
+
+
+
+.footer-icon {
+    width: 26px;
+    height: auto;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#portfolio-and-gh {
+    /* position: absolute;
+    bottom: 0;
+    right: 12px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

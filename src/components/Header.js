@@ -65,8 +65,8 @@ const Header = ( props ) => {
                             <i className="material-icons"> location_on
                             </i>
                         </button>
-                        <input id='location-input' onChange={props.onLocationUpdate} type='text'></input>
-                        <button className='search-bar-button' id='search-submit-button' onClick={props.locationSubmit}>
+                        <input id='location-input' onChange={props.onLocationUpdate} type='text'  placeholder='00000'></input>
+                        <button type='submit' className='search-bar-button' id='search-submit-button' onClick={props.locationSubmit}>
                             <i className="material-icons">
                             search
                             </i>

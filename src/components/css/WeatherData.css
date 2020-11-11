@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-
+    text-shadow: 1px 1px 4px var(--black);
 }
 
 .weather-card {
@@ -17,8 +17,9 @@
     max-width: 700px;
     /* margin-left: 10%; */
     /* margin-right: 10%; */
-    height: auto;
-    margin-top: 24px;
+    /* height: auto; */
+    margin: 24px;
+    padding: 10px;
     border: 1px solid black;
     /* -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);   */
@@ -33,11 +34,56 @@
 
 }
 
+.data-container {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+
+
 .weather-data-header {
     font-size: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    /* grid-auto-rows: 100%; */
+    grid-template-columns: 50% 25% 25%;
+}
+
+@media only screen and (max-width: 699px) {
+    /* .weather-data-header {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        justify-items: center;
+    } */
+    .weather-main {
+        /* justify-self: left; */
+        justify-self: center;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .feels-like {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    /* .weather-data-header {
+        grid-template-columns: 50% 25% 25%;
+        grid-template-rows: 100%;
+    } */
+    .weather-main {
+        justify-self: left;
+    }
+    .feels-like {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+}
+
+.weather-data-header span {
+    text-align: center;
 }
 
 .flex-row {
@@ -47,12 +93,29 @@
     justify-content: center;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+}
+
 #location-name {
     text-align: center;
     font-size: 2rem;
     margin-block-end: 0;
-    margin-block-start: 0;
+    margin-block-start: .5rem;
 }
+
+
+#zip-code {
+    margin-block-start: 0%;
+    margin-block-end: 0%;
+    width: 100%;
+    text-align: center;
+}
+
 
 /* #current-temp {
     text-align: center;
