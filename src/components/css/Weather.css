@@ -39,6 +39,7 @@
 
 #portfolio-and-gh {
     position: absolute;
+    z-index: 0;
     bottom: 0;
     left: 0;
     /* right: 12px; */

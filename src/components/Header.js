@@ -62,12 +62,19 @@ const Header = ( props ) => {
                             <i className="material-icons"> location_on
                             </i>
                         </button>
-                        <input id='location-input' onChange={props.onLocationUpdate} type='text'  placeholder='00000'></input>
-                        <button type='submit' className='search-bar-button' id='search-submit-button' onClick={props.locationSubmit}>
-                            <i className="material-icons">
-                            search
-                            </i>
-                        </button>
+                        <form id='zipcode-form' onSubmit={e=> {
+                            e.preventDefault();
+                            props.locationSubmit();
+                        }}> 
+                            <input id='location-input' onChange={props.onLocationUpdate} type='text'  placeholder='00000'></input>
+                            {/* removed from button  onClick={props.locationSubmit} */}
+                            <button type='submit' className='search-bar-button' id='search-submit-button'>
+                                <i className="material-icons">
+                                search
+                                </i>
+                            </button>
+                        </form>
+
                     </span>
                 </div>
                 <div className='temp-toggle-container'>

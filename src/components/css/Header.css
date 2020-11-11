@@ -37,6 +37,13 @@
   border-radius: .9rem;
 }
 
+#zipcode-form {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
 .search-bar-container:hover {
   /* background-color: var(--dark-grey); */
   box-shadow: 2px 2px 1px var(--dark-grey);

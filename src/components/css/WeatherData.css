@@ -11,6 +11,7 @@
 }
 
 .weather-card {
+    z-index: 1;
     border-radius: 12px;
     background-color: var(--light-blue);
     width: 80%;
