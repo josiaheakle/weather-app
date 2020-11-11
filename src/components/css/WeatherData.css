@@ -1,0 +1,59 @@
+.WeatherData {
+    width: 100vw;
+    /* height: calc(100vw - 200px); */
+    height: 100vh;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.weather-card {
+    border-radius: 12px;
+    background-color: var(--light-blue);
+    width: 80%;
+    max-width: 700px;
+    /* margin-left: 10%; */
+    /* margin-right: 10%; */
+    height: auto;
+    margin-top: 24px;
+    border: 1px solid black;
+    /* -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);   */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--white);
+    /* box-shadow: 2px 4px 8px var(--dark-grey); */
+
+
+}
+
+.weather-data-header {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+#location-name {
+    text-align: center;
+    font-size: 2rem;
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+/* #current-temp {
+    text-align: center;
+} */
