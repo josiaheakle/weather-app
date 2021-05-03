@@ -1,3 +1,47 @@
 .App { 
     overflow: hidden;
+    height: 100vh;
 }
+
+/* ============= FOOTER ============= */
+.Footer {
+    position: fixed;
+    bottom: 0;
+    width: 80vw;
+    padding: 1rem 1rem 0.5rem 1rem;
+    max-width: 500px;
+    height: 25vh;
+    max-height: 250px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: var(--brown);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 2px 8px var(--dark-grey);
+
+  }
+  
+  .my-icon {
+    width: 42px;
+  }
+  
+  .link-icon {
+    width: 24px;
+  }
+  
+  .my-link-container {
+    display: flex;
+    flex-direction: row;
+    /* gap: 1em;
+    grid-gap: 1em; */
+  }
+  
+  .my-link {
+    transition: transform .5s;
+    margin: .5em;
+  }
+  
+  .my-link:hover {
+    transform: scale(1.2);
+  }
